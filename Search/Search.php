@@ -37,7 +37,7 @@ class SearchPlugin extends MantisPlugin {
 
 		$this->version = '0.0.2';
 		$this->requires = array(
-			'MantisCore' => '1.2.0rc2',
+			'MantisCore' => '1.2.0',
 		);
 
 		$this->author = 'Krasnov Kirill';
