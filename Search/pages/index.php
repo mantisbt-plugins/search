@@ -23,7 +23,7 @@ html_page_top2();
 	<tr>
 		<td style="padding:.25em;"><a href="<?php echo config_get( "path" ); ?>"><img src="<?php echo config_get( "logo_image" ); ?>" border=0 alt="MantisBT"></a></td>
 		<td id=text style="padding:.25em;"><input name=text size=50 maxlength=300></td>
-		<td style="padding:.25em;"><input type=submit value="Найти"></td>
+		<td style="padding:.25em;"><input type=submit value="<?php echo plugin_lang_get( 'search_button' ); ?>"></td>
 	</tr>
 </table>
 </form>
