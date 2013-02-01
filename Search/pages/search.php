@@ -28,7 +28,7 @@ function prepare_search_bug_data( $t_bug_id )
 		$status_color = get_status_color( $g_bug->status );
 		$result .= '<tr bgcolor="' . $status_color . '">';
 		$result .= '<td class="center" valign="top" width ="0" nowrap="nowrap">';
-		$result .= '<span class="small"';
+		$result .= '<span class="small">';
 		$result .= string_get_bug_view_link( $c_bug_id );
 		$result .= '</span><br />';
 		if( VS_PRIVATE == $g_bug->view_state ) {
