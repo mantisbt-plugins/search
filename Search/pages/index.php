@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2009	Kirill Krasnov
+ * Copyright (C) 2009-2014	Kirill Krasnov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

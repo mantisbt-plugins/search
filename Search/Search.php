@@ -2,7 +2,7 @@
 /**
  * Created on 26.09.2009
  *
- * Copyright (C) 2009	Kirill Krasnov
+ * Copyright (C) 2009-2014	Kirill Krasnov
  * ICQ					82427351
  * JID					krak@jabber.ru
  * Skype				kirillkr
@@ -35,7 +35,7 @@ class SearchPlugin extends MantisPlugin {
 		$this->description = plugin_lang_get( 'description' );
 		//$this->page = 'config';
 
-		$this->version = '0.0.2';
+		$this->version = '0.0.3';
 		$this->requires = array(
 			'MantisCore' => '1.2.0',
 		);

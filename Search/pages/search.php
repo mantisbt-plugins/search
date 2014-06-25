@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2009	Kirill Krasnov
+ * Copyright (C) 2009-2014	Kirill Krasnov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 function prepare_search_bug_data( $t_bug_id )
 {
 	$result = '';
-	$c_bug_id = db_prepare_int( $t_bug_id );
+	$c_bug_id = (int) $t_bug_id;
 	if ( bug_exists( $c_bug_id ) ) {
 		$t_icon_path = config_get( 'icon_path' );
 		$g_bug = bug_get( $c_bug_id );
@@ -50,16 +50,16 @@ function prepare_search_bug_data( $t_bug_id )
  * @return int
  */
 function get_bug_id_from_bugnote_id( $t_bugnote_id ) {
-	$c_bugnote_id = db_prepare_int( $t_bugnote_id );
+	$c_bugnote_id = (int) $t_bugnote_id;
 	$t_bug_id = 0;
 	if ( bugnote_exists( $c_bugnote_id )){
-		$t_table = db_get_table( 'mantis_bugnote_table' );
+		$t_table = db_get_table( 'bugnote' );
 		$query = 'select bug_id from ' . $t_table . ' where ' .db_helper_like( 'bugnote_text_id' );
 		$result = db_query_bound( $query, array( $c_bugnote_id ) );
 		$count = db_num_rows( $result );
 		if ($count != 0) { 
 			$row = db_fetch_array( $result ); 
-			$t_bug_id = db_prepare_int( $row['bug_id'] ); 
+			$t_bug_id = (int) $row['bug_id'];
 		}
 	}
 	return $t_bug_id;
@@ -72,9 +72,9 @@ $g_param[] = $g_text;
 $g_param[] = $g_text;
 $g_param[] = $g_text;
 
-$g_table_bug = db_get_table( 'mantis_bug_table' );
-$g_table_bug_text = db_get_table( 'mantis_bug_text_table' );
-$g_table_bug_note = db_get_table( 'mantis_bugnote_text_table' );
+$g_table_bug = db_get_table( 'bug' );
+$g_table_bug_text = db_get_table( 'bug_text' );
+$g_table_bug_note = db_get_table( 'bugnote_text' );
 
 $g_query_bug = 'select * from ' . $g_table_bug . ' where ' . db_helper_like( 'summary' );
 $g_query_bug_text = 'select * from ' . $g_table_bug_text . ' where ' . db_helper_like( 'description' ) . ' or ' . db_helper_like( 'steps_to_reproduce' ) . ' or ' . db_helper_like( 'additional_information' );
@@ -103,17 +103,17 @@ else
 	$t_bug_array = array();
 	if ( $g_count_bug != 0) {
 		while( $row = db_fetch_array( $g_result_bug ) ){
-			$t_bug_array[] = db_prepare_int( $row['id'] );
+			$t_bug_array[] = (int) $row['id'];
 		}
 	}
 	if ( $g_count_bug_text != 0) {
 		while( $row = db_fetch_array( $g_result_bug_text ) ){
-			$t_bug_array[] = db_prepare_int( $row['id'] );
+			$t_bug_array[] = (int) $row['id'];
 		}
 	}
 	if ( $g_count_bug_note != 0) {
 		while( $row = db_fetch_array( $g_result_bug_note ) ){
-			$t_bug_array[] = db_prepare_int( get_bug_id_from_bugnote_id( $row['id'] ));
+			$t_bug_array[] = (int) get_bug_id_from_bugnote_id( $row['id'] );
 		}
 	}
 	$t_bug_array = array_unique( $t_bug_array );
