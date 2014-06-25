@@ -19,10 +19,9 @@ html_page_top2();
 
 <form action="<?php echo plugin_page( "search" ); ?>" method="post">
 <?php echo form_security_field( 'plugin_Search_search_press' ) ?>
-<table style="width:60%;max-width:1000px;min-width:300px;margin:auto;">
+<table style="width:40%;max-width:1000px;min-width:200px;margin:auto;">
 	<tr>
-		<td style="padding:.25em;"><a href="<?php echo config_get( "path" ); ?>"><img src="<?php echo config_get( "logo_image" ); ?>" border=0 alt="MantisBT"></a></td>
-		<td id=text style="padding:.25em;"><input name=text size=50 maxlength=300></td>
+		<td id=text style="padding:.25em;"><input name=text size=100 maxlength=300></td>
 		<td style="padding:.25em;"><input type=submit value="<?php echo plugin_lang_get( 'search_link' ); ?>"></td>
 	</tr>
 </table>
