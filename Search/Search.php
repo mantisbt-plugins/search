@@ -35,7 +35,7 @@ class SearchPlugin extends MantisPlugin {
 		$this->description = plugin_lang_get( 'description' );
 		//$this->page = 'config';
 
-		$this->version = '0.0.3';
+		$this->version = '0.0.4';
 		$this->requires = array(
 			'MantisCore' => '1.2.0',
 		);

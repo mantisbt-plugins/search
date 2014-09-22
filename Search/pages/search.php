@@ -53,7 +53,7 @@ function get_bug_id_from_bugnote_id( $t_bugnote_id ) {
 	$c_bugnote_id = (int) $t_bugnote_id;
 	$t_bug_id = 0;
 	if ( bugnote_exists( $c_bugnote_id )){
-		$t_table = db_get_table( 'bugnote' );
+		$t_table = db_get_table( 'mantis_bugnote_table' );
 		$query = 'select bug_id from ' . $t_table . ' where ' .db_helper_like( 'bugnote_text_id' );
 		$result = db_query_bound( $query, array( $c_bugnote_id ) );
 		$count = db_num_rows( $result );
@@ -72,9 +72,9 @@ $g_param[] = $g_text;
 $g_param[] = $g_text;
 $g_param[] = $g_text;
 
-$g_table_bug = db_get_table( 'bug' );
-$g_table_bug_text = db_get_table( 'bug_text' );
-$g_table_bug_note = db_get_table( 'bugnote_text' );
+$g_table_bug = db_get_table( 'mantis_bug_table' );
+$g_table_bug_text = db_get_table( 'mantis_bug_text_table' );
+$g_table_bug_note = db_get_table( 'mantis_bugnote_text_table' );
 
 $g_query_bug = 'select * from ' . $g_table_bug . ' where ' . db_helper_like( 'summary' );
 $g_query_bug_text = 'select * from ' . $g_table_bug_text . ' where ' . db_helper_like( 'description' ) . ' or ' . db_helper_like( 'steps_to_reproduce' ) . ' or ' . db_helper_like( 'additional_information' );
