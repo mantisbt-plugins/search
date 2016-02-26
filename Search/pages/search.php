@@ -20,26 +20,34 @@
  */
 function prepare_search_bug_data( $t_bug_id )
 {
+	global $allowedProjects;
+	
 	$result = '';
 	$c_bug_id = (int) $t_bug_id;
 	if ( bug_exists( $c_bug_id ) ) {
 		$t_icon_path = config_get( 'icon_path' );
 		$g_bug = bug_get( $c_bug_id );
-		$status_color = get_status_color( $g_bug->status );
-		$result .= '<tr bgcolor="' . $status_color . '">';
-		$result .= '<td class="center" valign="top" width ="0" nowrap="nowrap">';
-		$result .= '<span class="small">';
-		$result .= string_get_bug_view_link( $c_bug_id );
-		$result .= '</span><br />';
-		if( VS_PRIVATE == $g_bug->view_state ) {
-			$result .= '<img src="' . $t_icon_path . 'protected.gif" width="8" height="15" alt="' . lang_get( 'private' ) . '" />';
+		
+		if (in_array($g_bug->project_id, $allowedProjects))
+		{
+			$status_color = get_status_color( $g_bug->status );
+			$result .= '<tr bgcolor="' . $status_color . '">';
+			$result .= '<td class="center" valign="top" width ="0" nowrap="nowrap">';
+			$result .= '<span class="small">';
+			$result .= string_get_bug_view_link( $c_bug_id );
+			$result .= '</span><br />';
+
+			if( VS_PRIVATE == $g_bug->view_state ) {
+				$result .= '<img src="' . $t_icon_path . 'protected.gif" width="8" height="15" alt="' . lang_get( 'private' ) . '" />';
+			}
+
+			$result .= '</span></td><td class="left" valign="top" width="80%"><span class="small">';
+			$result .= $g_bug->summary;
+			$result .= '</span></td><td class="left" valign="top"><span class="small">';
+			$result .= user_get_name( $g_bug->reporter_id );
+			$result	.= '</span></td>';
+			$result .= '</tr>';
 		}
-		$result .= '</span></td><td class="left" valign="top" width="80%"><span class="small">';
-		$result .= $g_bug->summary;
-		$result .= '</span></td><td class="left" valign="top"><span class="small">';
-		$result .= user_get_name( $g_bug->reporter_id );
-		$result	.= '</span></td>';
-		$result .= '</tr>';
 	}
 	return $result;
 }
@@ -86,6 +94,8 @@ $g_result_bug_text = db_query_bound( $g_query_bug_text, $g_param );
 $g_count_bug_text = db_num_rows( $g_result_bug_text );
 $g_result_bug_note = db_query_bound( $g_query_bug_note, array( $g_text ) );
 $g_count_bug_note = db_num_rows( $g_result_bug_note );
+
+$allowedProjects = current_user_get_accessible_projects();
 
 /**
  * Result string with links
