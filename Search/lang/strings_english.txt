@@ -15,6 +15,6 @@
 
 	$s_plugin_Search = '';
 	$s_plugin_Search_title = 'Search Issues';
-	$s_plugin_Search_description = 'Plugin add more powerfull search engine to MantisBT';
+	$s_plugin_Search_description = 'This plugin adds a more powerful search engine to MantisBT';
 	$s_plugin_Search_search_link = 'Search';
-	$s_plugin_Search_not_found = 'Sorry. For your query nothing found.';
+	$s_plugin_Search_not_found = 'Sorry. Your query returned no results.';
