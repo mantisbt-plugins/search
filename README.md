@@ -1,6 +1,6 @@
 # Search #
 
-This plugin can help find issue where text searches in bug text, comments, additional informations
+This plugin improves the finding of issues by searching bug text, comments and additional information.
 
 # Requirements #
 
