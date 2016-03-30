@@ -14,7 +14,7 @@
 */
 
 	$s_plugin_Search = '';
-	$s_plugin_Search_title = 'Zoek in Meldingen';
+	$s_plugin_Search_title = 'Zoeken in meldingen';
 	$s_plugin_Search_description = 'Deze plugin voegt zoekfunctionaliteit toe aan Mantis';
 	$s_plugin_Search_search_link = 'Zoeken';
 	$s_plugin_Search_not_found = 'Er zijn geen resultaten gevonden.';
