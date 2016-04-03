@@ -41,7 +41,7 @@ function prepare_search_bug_data( $t_bug_id )
 				$result .= '<img src="' . $t_icon_path . 'protected.gif" width="8" height="15" alt="' . lang_get( 'private' ) . '" />';
 			}
 
-			$result .= '</span></td><td class="left" valign="top" width="80%"><span class="small">';
+			$result .= '</td><td class="left" valign="top" width="80%"><span class="small">';
 			$result .= $g_bug->summary;
 			$result .= '</span></td><td class="left" valign="top"><span class="small">';
 			$result .= user_get_name( $g_bug->reporter_id );
