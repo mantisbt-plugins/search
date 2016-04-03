@@ -21,8 +21,12 @@ html_page_top2();
 <?php echo form_security_field( 'plugin_Search_search_press' ) ?>
 <table style="width:40%;max-width:1000px;min-width:200px;margin:auto;">
 	<tr>
-		<td id=text style="padding:.25em;"><input name=text size=100 maxlength=300></td>
-		<td style="padding:.25em;"><input type=submit value="<?php echo plugin_lang_get( 'search_link' ); ?>"></td>
+		<td id="text" style="padding:.25em;">
+			<input name="text" size="100" maxlength="300" />
+		</td>
+		<td style="padding:.25em;">
+			<input type="submit" value="<?php echo plugin_lang_get( 'search_link' ); ?>" />
+		</td>
 	</tr>
 </table>
 </form>
