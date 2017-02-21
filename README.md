@@ -1,3 +1,5 @@
+# This plugin is no longer maintained or needed
+
 # Search #
 
 This plugin improves the finding of issues by searching bug text, comments and additional information.
